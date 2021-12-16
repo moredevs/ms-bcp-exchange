@@ -1,7 +1,7 @@
 spring:
     datasource:
-        driver-class-name: com.mysql.jdbc.Driver
-        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password:
         url: jdbc:mysql://localhost:3306/exchange
         username: root
     jackson:
@@ -14,6 +14,7 @@ spring:
                 physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         properties:
             hibernate:
-                format_sql: true
+                format_sql: false
         show-sql: true
-
+    main:
+        allow-circular-references: true

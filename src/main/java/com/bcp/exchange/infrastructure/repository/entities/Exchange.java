@@ -1,20 +1,18 @@
 package com.bcp.exchange.infrastructure.repository.entities;
 
-import com.bcp.exchange.application.domains.responses.ExchangeResponse;
+import com.bcp.exchange.application.domains.responses.ConvertExchangeResponse;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "Exchange")
+@Table(name = "exchange")
 public class Exchange {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
     @Column(name = "originCurrency", nullable = false)
@@ -24,10 +22,11 @@ public class Exchange {
     @Column(name = "rate", nullable = false)
     Double rate;
 
-    public ExchangeResponse calculateExchange(Double amount){
-        return new ExchangeResponse(
-                this.originCurrency,
+
+    public ConvertExchangeResponse convertExchange(Double amount){
+        return new ConvertExchangeResponse(
                 amount,
+                this.originCurrency,
                 this.targetCurrency,
                 amount*this.rate,
                 this.rate
