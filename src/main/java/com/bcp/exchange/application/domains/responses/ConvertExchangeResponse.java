@@ -1,26 +1,18 @@
 package com.bcp.exchange.application.domains.responses;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 
-public class ExchangeResponse {
-    Long id;
+public class ConvertExchangeResponse {
     String originCurrency;
     Double amount;
     String targetCurrency;
     Double amountExchanged;
     Double rate;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getOriginCurrency() {
         return originCurrency;
@@ -59,6 +51,14 @@ public class ExchangeResponse {
     }
 
     public void setRate(Double rate) {
+        this.rate = rate;
+    }
+
+    public ConvertExchangeResponse(Double amount, String originCurrency, String targetCurrency, Double amountExchanged, Double rate) {
+        this.amount = amount;
+        this.originCurrency = originCurrency;
+        this.targetCurrency = targetCurrency;
+        this.amountExchanged = amountExchanged;
         this.rate = rate;
     }
 }
