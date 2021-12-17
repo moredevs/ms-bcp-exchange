@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Transactional
 @Service("userDetailsService")
-public class UserDetailsServiceImpl implements UserDetailsService  {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     private UserRepository repository;
 

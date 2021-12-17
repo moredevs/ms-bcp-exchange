@@ -1,7 +1,13 @@
+jwt:
+    secret: bcpsecret
+    expiration: 43200
+    get:
+        token:
+            uri: /authenticate
 spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        password:
+        password: root
         url: jdbc:mysql://localhost:3306/exchange
         username: root
     jackson:
