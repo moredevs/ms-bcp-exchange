@@ -39,7 +39,7 @@ public class ExchangeRepositoryImpl implements ExchangeRepositoryPort {
                 singleEmitter.onError(new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exchange Rate exist"));
             }else {
                 Exchange exchange = exchangeRepository.save(ExchangeMapper.INSTANCE.createExchangeRequestToExchange(createExchangeRequest));
-                singleEmitter.onSuccess(ExchangeMapper.INSTANCE.ExchangeToExchangeReponse(exchange));
+                singleEmitter.onSuccess(ExchangeMapper.INSTANCE.exchangeToExchangeResponse(exchange));
             }
         });
     }
